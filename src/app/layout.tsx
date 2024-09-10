@@ -14,12 +14,33 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Abhishek Mahato",
+  title: "Abhishek Mahato - FullStack Web Developer",
   description:
-    "Portfolio of Abhishek Mahato a FullStack WebDeveloper from Nepal. Is skilled in React, NextJs, TailwindCSS, NodeJs, ExpressJs, MongoDB, and other web technologies. Islington College Graduate.",
+    "Abhishek Mahato is a FullStack Web Developer from Nepal, specializing in React, Next.js, TailwindCSS, Node.js, Express.js, MongoDB, and other modern web technologies. An Islington College Graduate with experience in building scalable web applications.",
   keywords:
-    "Abhishek Mahato, abhishek-mahato, abishek mahato, abishekh mahato, FullStack Developer, Web Developer, React Developer, NextJs Developer, TailwindCSS Developer, NodeJs Developer, ExpressJs Developer, MongoDB Developer, Web Technologies, Islington College Graduate, innovate, naxa, Nepal, Kathmandu",
+    "Abhishek Mahato, FullStack Developer, MERN Developer, React Developer, Next.js Developer, TailwindCSS, Node.js, MongoDB, Express.js, Web Development, Islington College, Nepal, Kathmandu, Portfolio, Web Technologies",
   authors: [{ name: "Abhishek Mahato" }],
+  openGraph: {
+    title: "Abhishek Mahato - FullStack Web Developer",
+    description:
+      "Portfolio of Abhishek Mahato, a FullStack Web Developer specializing in modern web technologies like React, Next.js, TailwindCSS, Node.js, and MongoDB.",
+    url: "https://www.abhishek-mahato.com.np",
+    siteName: "Abhishek Mahato - Portfolio",
+    images: [
+      {
+        url: "https://www.abhishek-mahato.com.np/profile.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Abhishek Mahato - Portfolio",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  viewport: "width=device-width, initial-scale=1.0",
+  alternates: {
+    canonical: "https://www.abhishek-mahato.com.np", // Replace with your portfolio URL
+  },
 };
 
 export default function RootLayout({
