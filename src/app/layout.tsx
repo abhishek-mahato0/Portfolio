@@ -1,17 +1,5 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 export const metadata: Metadata = {
   title: "Abhishek Mahato - FullStack Web Developer",
@@ -37,9 +25,8 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
-  viewport: "width=device-width, initial-scale=1.0",
   alternates: {
-    canonical: "https://www.abhishek-mahato.com.np", // Replace with your portfolio URL
+    canonical: "https://www.abhishek-mahato.com.np",
   },
 };
 
@@ -50,9 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className=" bg-black flex flex-col items-center justify-center">
         {children}
       </body>
     </html>

@@ -1,15 +1,30 @@
+"use client";
+
+import Banner from "@/components/Banner";
+import CompanyProjects from "@/components/CompanyProjects";
+import Education from "@/components/Education";
+import Experience from "@/components/Experience";
+import { Footer } from "@/components/Footer";
 import NavBar from "@/components/NavBar";
-import TechCard from "@/components/TechCard";
+import PersonalProjectsV2 from "@/components/PersonalProjectsV2";
+import TechStack from "@/components/TechStack";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <div className=" w-full h-screen">
+    <div
+      className={`${inter.className} w-full overflow-x-hidden flex flex-col gap-0 px-10 items-center justify-center max-w-7xl`}
+    >
       <NavBar />
-      <div className=" w-full flex h-[calc(100%-96px)] flex-col items-start justify-center md:pl-10 px-3 gap-3">
-        <h1 className="md:text-6xl text-4xl tracking-wider">Abhishek Mahato</h1>
-        <p className=" text-orange-600 text-xl">FullStack WebDeveloper</p>
-        <TechCard />
-      </div>
+      <Banner />
+      <PersonalProjectsV2 />
+      <CompanyProjects />
+      <Experience />
+      <TechStack />
+      <Education />
+      <Footer />
     </div>
   );
 }

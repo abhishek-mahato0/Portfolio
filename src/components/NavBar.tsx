@@ -29,9 +29,12 @@ const NavInfo = () => {
 
 const NavBar = () => {
   return (
-    <div className=" w-full sticky top-0 flex h-20  text-orange-600 text-xl border-b-2 border-b-[#292929] items-center justify-between px-5">
-      <p>Abhishek Mahato</p>
-      <NavInfo />
+    <div className=" w-full flex h-20 text-xl lg:text-lg sm:text-sm items-center justify-between z-30 px-10 bg-transparent">
+      <p className=" font-bold">A.M.</p>
+      <div className=" flex items-end gap-6">
+        <NavInfo />
+        {/* <p>Menu</p> */}
+      </div>
     </div>
   );
 };
