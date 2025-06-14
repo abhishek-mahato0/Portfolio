@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../Header";
+import { cn } from "@/utils";
 
 const skills = [
   "HTML",
@@ -108,7 +109,7 @@ export const experience = [
 
 const Experience = () => {
   return (
-    <div className="w-full relative mt-10 pt-20">
+    <div className="w-full relative mt-10 pt-20" id="experience">
       {/* Fading white top border */}
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white to-transparent opacity-30" />
 
@@ -118,7 +119,15 @@ const Experience = () => {
       <div className="relative z-10 flex flex-col items-center justify-between gap-4">
         <Header title="Experience" />
 
-        <div className="text-center text-gray-400 p-10 bg-gray-900 mb-4 rounded-lg">
+        <div className=" relative text-center text-gray-400 p-10 bg-gray-900 mb-4 rounded-lg">
+          <div
+            className={cn(
+              "absolute inset-0 z-0 opacity-45",
+              "[background-size:40px_40px]",
+              "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
+              "dark:[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)]"
+            )}
+          />
           {skills.map((skill, index) => (
             <span
               key={index}

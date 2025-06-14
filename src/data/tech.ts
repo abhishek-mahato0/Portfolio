@@ -9,8 +9,19 @@ import {
   IconTypescript,
   ReactIcon,
 } from "@/icons";
+import { FaCss3, FaHtml5 } from "react-icons/fa6";
+import { GrGraphQl } from "react-icons/gr";
+import { SiReactquery, SiRedux } from "react-icons/si";
 
 export const tech = [
+  {
+    name: "HTML",
+    icon: FaHtml5,
+  },
+  {
+    name: "CSS",
+    icon: FaCss3,
+  },
   {
     name: "JavaScript",
     icon: IconJavascript,
@@ -47,4 +58,10 @@ export const tech = [
     name: "PostgreSQL",
     icon: IconPostgresql,
   },
+  {
+    name: "GraphQL",
+    icon: GrGraphQl,
+  },
+  { name: "React Query", icon: SiReactquery },
+  { name: "Redux", icon: SiRedux },
 ];

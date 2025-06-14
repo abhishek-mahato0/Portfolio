@@ -5,7 +5,10 @@ import ProjectCard from "./Card";
 
 const Projects = () => {
   return (
-    <div className="w-full flex flex-col gap-4 relative pt-20 mt-40">
+    <div
+      className="w-full flex flex-col gap-4 relative pt-20 mt-40"
+      id="projects"
+    >
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white to-transparent opacity-30" />
 
       {/* Spotlight */}
