@@ -13,43 +13,47 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Peter Mahato – Fullstack Web Developer",
+  title: "Abhishek Mahato | Fullstack Web Developer in Kathmandu, Nepal",
   description:
-    "Portfolio of Peter Mahato, a Fullstack Developer from Nepal specializing in MERN Stack, React, and Next.js. Explore projects and experiences.",
-  authors: [{ name: "Peter Mahato" }],
+    "I'm Abhishek Mahato, a fullstack web developer based in Kathmandu, Nepal, skilled in MERN stack, React, and Next.js. View my projects, resume, and skills.",
+  applicationName: "Abhishek Mahato Portfolio",
+  themeColor: "#000000",
+  authors: [{ name: "Abhishek Mahato" }],
   keywords: [
-    "Peter Mahato",
+    "Abhishek Mahato",
     "Fullstack Developer",
     "Web Developer Nepal",
     "Next.js Developer",
     "React Developer",
     "MERN Stack",
     "Portfolio",
+    "Kathmandu Developer",
+    "Frontend Backend Developer",
   ],
-  creator: "Peter Mahato",
+  creator: "Abhishek Mahato",
   openGraph: {
-    title: "Peter Mahato – Fullstack Web Developer",
+    title: "Abhishek Mahato – Fullstack Web Developer",
     description:
-      "Explore the professional portfolio of Peter Mahato. Discover cutting-edge projects built with React, Node.js, and MongoDB.",
+      "Explore the professional portfolio of Abhishek Mahato. Discover cutting-edge projects built with React, Node.js, and MongoDB.",
     url: "https://www.abhishek-mahato.com.np",
-    siteName: "Peter Mahato Portfolio",
+    siteName: "Abhishek Mahato Portfolio",
     images: [
       {
-        url: "https://www.abhishek-mahato.com.np/og-image.png", // Replace with your actual OG image
+        url: "https://www.abhishek-mahato.com.np/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Peter Mahato Portfolio",
+        alt: "Abhishek Mahato Portfolio",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Peter Mahato – Fullstack Web Developer",
+    title: "Abhishek Mahato – Fullstack Web Developer",
     description:
-      "Check out the portfolio of Peter Mahato, showcasing modern web apps and development skills.",
-    creator: "@yourTwitterHandle", // Add if you have Twitter
-    images: ["https://www.abhishek-mahato.com.np/og-image.png"], // Update image
+      "Check out the portfolio of Abhishek Mahato, showcasing modern web apps and development skills.",
+    creator: "@yourActualHandle",
+    images: ["https://www.abhishek-mahato.com.np/og-image.png"],
   },
   metadataBase: new URL("https://www.abhishek-mahato.com.np"),
 };

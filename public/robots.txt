@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.abhishek-mahato.com.np
+
+# Sitemaps
+Sitemap: https://www.abhishek-mahato.com.np/sitemap.xml
