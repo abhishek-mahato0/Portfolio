@@ -18,7 +18,7 @@ const Banner = () => {
   return (
     <div
       id="home"
-      className={`flex relative overflow-hidden flex-col items-center justify-between h-[100vh] text-gray-100 p-8 gap-4 ${kaiseiTokumin.variable}`}
+      className={`flex relative overflow-hidden w-full flex-col items-center justify-between h-[100vh] text-gray-100 p-8 gap-4 ${kaiseiTokumin.variable}`}
     >
       <FloatingIcons />
       {/* {!loaded && (

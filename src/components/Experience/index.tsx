@@ -118,8 +118,12 @@ const Experience = () => {
 
       <div className="relative z-10 flex flex-col items-center justify-between gap-4">
         <Header title="Experience" />
+        <p className="text-center text-gray-400 text-lg md:text-xl lg:w-[70%] w-full">
+          2+ years of experience building full-stack web applications with a
+          focus on performance, usability, and modern tech stacks.
+        </p>
 
-        <div className=" relative text-center text-gray-400 p-10 bg-gray-900 mb-4 rounded-lg">
+        <div className="relative text-center text-gray-400 p-10 bg-gray-900 mb-4 rounded-lg mt-4">
           <div
             className={cn(
               "absolute inset-0 z-0 opacity-45",

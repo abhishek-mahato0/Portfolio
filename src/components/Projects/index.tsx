@@ -6,7 +6,7 @@ import ProjectCard from "./Card";
 const Projects = () => {
   return (
     <div
-      className="w-full flex flex-col gap-4 relative pt-20 mt-40"
+      className="w-full flex flex-col gap-4 relative pt-20 mt-40 lg:px-0 px-2"
       id="projects"
     >
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white to-transparent opacity-30" />
@@ -14,7 +14,12 @@ const Projects = () => {
       {/* Spotlight */}
       <div className="absolute top-0 left-[30%] transform -translate-x-1 -translate-y-1/3 w-[500px] h-[200px] bg-white rounded-full blur-2xl mix-blend-soft-light pointer-events-none z-0" />
       <Header title="Projects" />
-      <div className=" grid grid-cols-2 gap-10 items-center justify-center">
+      <p className="text-center text-gray-400 w-full lg:w-[70%] mx-auto text-base md:text-lg">
+        A collection of full-stack projects showcasing practical solutions,
+        real-world use cases, and clean, scalable code using modern web
+        technologies.
+      </p>
+      <div className=" grid lg:grid-cols-2 grid-cols-1 gap-10 items-center justify-center mt-4">
         {personalProjects.map((project) => (
           <ProjectCard
             key={project.title}

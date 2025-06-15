@@ -1,18 +1,28 @@
+"use client";
+
 import Image from "next/image";
-import React from "react";
+import Link from "next/link";
+import React, { useState } from "react";
+import { BiMenu } from "react-icons/bi";
+import { CgClose, CgCross } from "react-icons/cg";
 
 const links = [
   { id: 1, name: "Projects", url: "#projects" },
-  { id: 2, name: "About", url: "#about" },
   { id: 3, name: "Experience", url: "#experience" },
   { id: 4, name: "Contact", url: "#contact" },
 ];
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className="w-full h-[60px] sticky top-0 z-50 backdrop-blur-md bg-black/30 border-b border-gray-700 flex justify-between items-center text-white">
-      <div className="w-[1300px] mx-auto flex items-center justify-between px-4">
-        <h1 className="text-2xl font-bold tracking-wide relative gap-1 flex text-gray-400">
+    <nav className="w-full sticky top-0 z-50 backdrop-blur-md bg-black/30 border-b border-gray-700 text-white">
+      <div className="max-w-[1300px] mx-auto px-4 py-3 flex items-center justify-between">
+        {/* Logo */}
+        <Link
+          href="#home"
+          className="text-2xl font-bold tracking-wide relative gap-1 flex items-center text-gray-400"
+        >
           <span className="z-10">A</span>
           <Image
             src="/profile.jpg"
@@ -22,20 +32,51 @@ const Navbar = () => {
             width={40}
           />
           <span className="ml-4 z-10">M</span>
-        </h1>
-        <div className="flex gap-6">
+        </Link>
+
+        {/* Desktop nav */}
+        <div className="hidden md:flex gap-6">
           {links.map((link) => (
-            <a
+            <Link
               key={link.id}
               href={link.url}
-              className="text-white hover:text-gray-300 transition-colors duration-200"
+              className="hover:text-gray-300 transition-colors duration-200"
+              scroll={false}
             >
               {link.name}
-            </a>
+            </Link>
           ))}
         </div>
+
+        {/* Hamburger Icon */}
+        <div className="md:hidden">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle Menu"
+            className="text-white"
+          >
+            {isOpen ? <CgClose size={24} /> : <BiMenu size={24} />}
+          </button>
+        </div>
       </div>
-    </div>
+
+      {/* Mobile Nav Dropdown */}
+      {isOpen && (
+        <div className="md:hidden px-6 py-4 flex flex-col gap-4 bg-black/80 border-t border-gray-700">
+          {links.map((link) => (
+            <Link
+              key={link.id}
+              href={link.url}
+              className="hover:text-gray-300 transition-colors duration-200"
+              onClick={() => setIsOpen(false)}
+              scroll={false}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </div>
+      )}
+    </nav>
   );
 };
 
