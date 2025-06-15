@@ -1,10 +1,11 @@
 "use client";
 
+import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { BiMenu } from "react-icons/bi";
-import { CgClose, CgCross } from "react-icons/cg";
+import { CgClose } from "react-icons/cg";
 
 const links = [
   { id: 1, name: "Projects", url: "#projects" },
@@ -16,7 +17,12 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="w-full sticky top-0 z-50 backdrop-blur-md bg-black/30 border-b border-gray-700 text-white">
+    <motion.nav
+      className="w-full sticky top-0 z-50 backdrop-blur-md bg-black/30 border-b border-gray-700 text-white"
+      initial={{ opacity: 0, y: -50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 2, ease: "easeInOut" }}
+    >
       <div className="max-w-[1300px] mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <Link
@@ -41,7 +47,6 @@ const Navbar = () => {
               key={link.id}
               href={link.url}
               className="hover:text-gray-300 transition-colors duration-200"
-              scroll={false}
             >
               {link.name}
             </Link>
@@ -62,21 +67,28 @@ const Navbar = () => {
 
       {/* Mobile Nav Dropdown */}
       {isOpen && (
-        <div className="md:hidden px-6 py-4 flex flex-col gap-4 bg-black/80 border-t border-gray-700">
-          {links.map((link) => (
-            <Link
-              key={link.id}
-              href={link.url}
-              className="hover:text-gray-300 transition-colors duration-200"
-              onClick={() => setIsOpen(false)}
-              scroll={false}
-            >
-              {link.name}
-            </Link>
-          ))}
-        </div>
+        <AnimatePresence>
+          <motion.div
+            className="md:hidden px-6 py-4 flex flex-col gap-4 bg-black/80 border-t border-gray-700 absolute left-0 w-full"
+            exit={{ opacity: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+          >
+            {links.map((link) => (
+              <Link
+                key={link.id}
+                href={link.url}
+                className="hover:text-gray-300 transition-colors duration-200"
+                onClick={() => setIsOpen(false)}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </motion.div>
+        </AnimatePresence>
       )}
-    </nav>
+    </motion.nav>
   );
 };
 

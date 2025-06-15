@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
 import Header from "../Header";
 import { personalProjects } from "@/data/projects";
 import ProjectCard from "./Card";
+import { motion } from "motion/react";
 
 const Projects = () => {
   return (
@@ -12,7 +14,12 @@ const Projects = () => {
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white to-transparent opacity-30" />
 
       {/* Spotlight */}
-      <div className="absolute top-0 left-[30%] transform -translate-x-1 -translate-y-1/3 w-[500px] h-[200px] bg-white rounded-full blur-2xl mix-blend-soft-light pointer-events-none z-0" />
+      <motion.div
+        className="absolute top-0 left-[30%] transform -translate-x-1 -translate-y-1/3 w-[500px] h-[200px] bg-white rounded-full blur-2xl mix-blend-soft-light pointer-events-none z-0"
+        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        transition={{ duration: 1.5, ease: "easeInOut" }}
+      />
       <Header title="Projects" />
       <p className="text-center text-gray-400 w-full lg:w-[70%] mx-auto text-base md:text-lg">
         A collection of full-stack projects showcasing practical solutions,

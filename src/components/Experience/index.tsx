@@ -1,6 +1,8 @@
+"use client";
 import React from "react";
 import Header from "../Header";
 import { cn } from "@/utils";
+import { motion } from "motion/react";
 
 const skills = [
   "HTML",
@@ -109,14 +111,20 @@ export const experience = [
 
 const Experience = () => {
   return (
-    <div className="w-full relative mt-10 pt-20" id="experience">
+    <motion.div className="w-full relative mt-10 pt-20">
       {/* Fading white top border */}
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white to-transparent opacity-30" />
 
       {/* Spotlight */}
       <div className="absolute top-0 left-[30%] transform -translate-x-1 -translate-y-1/3 w-[500px] h-[200px] bg-white rounded-full blur-2xl mix-blend-soft-light pointer-events-none z-0" />
 
-      <div className="relative z-10 flex flex-col items-center justify-between gap-4">
+      <motion.div
+        className="relative z-10 flex flex-col items-center justify-between gap-4"
+        id="experience"
+        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        transition={{ duration: 1.5, ease: "easeInOut" }}
+      >
         <Header title="Experience" />
         <p className="text-center text-gray-400 text-lg md:text-xl lg:w-[70%] w-full">
           2+ years of experience building full-stack web applications with a
@@ -152,8 +160,8 @@ const Experience = () => {
             <p className="text-right">{exp.date}</p>
           </div>
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
