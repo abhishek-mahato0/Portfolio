@@ -39,7 +39,7 @@ const Banner = () => {
 
       <motion.div className="flex flex-col items-center justify-center gap-4 mt-8">
         <motion.img
-          src="profile.jpg"
+          src="profile-2.png"
           alt="Banner"
           className="w-[300px] h-[300px] object-cover rounded-full shadow-lg bg-gray-800 border-4 border-white dark:border-slate-900"
           initial={{ scale: 2, opacity: 0, y: 100 }}
