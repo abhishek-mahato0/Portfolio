@@ -6,8 +6,8 @@ import { Button } from "../Button";
 import FloatingIcons from "../FloatingIcons";
 import TechStack from "../TechStacks";
 import { Oswald } from "next/font/google";
-import { ColourfulText } from "@/animations/Colorful";
 import { motion } from "motion/react";
+import { TypewriterText } from "@/animations/TypeWriter";
 
 const kaiseiTokumin = Oswald({
   subsets: ["latin"],
@@ -19,7 +19,7 @@ const Banner = () => {
   return (
     <div
       id="home"
-      className={`flex relative overflow-hidden w-full flex-col items-center justify-between h-[100vh] text-gray-100 p-8 gap-4 ${kaiseiTokumin.variable}`}
+      className={`flex relative overflow-hidden w-full flex-col items-center justify-between min-h-[100vh] text-gray-100 p-8 gap-4 ${kaiseiTokumin.variable}`}
     >
       <FloatingIcons />
       {/* {!loaded && (
@@ -56,7 +56,7 @@ const Banner = () => {
           viewport={{ once: true }}
         >
           <span className="text-gray-400 text-base md:text-lg">
-            FullStack <ColourfulText text="Web Developer" />
+          <TypewriterText texts={["Full Stack Developer", "Tech Enthusiast"]} />
           </span>
           <h1 className="text-6xl font-kaisei md:text-7xl font-bold mt-4 text-center">
             <span className="">Abhishek</span>{" "}

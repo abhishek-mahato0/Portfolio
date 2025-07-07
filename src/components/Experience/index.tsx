@@ -153,11 +153,13 @@ const Experience = () => {
         {experience.map((exp, index) => (
           <div
             key={index}
-            className="px-4 py-6 shadow-md grid grid-cols-3 border-b border-b-gray-700 w-full"
+            className="px-4 py-6 shadow-md grid lg:grid-cols-3 grid-cols-2 border-b border-b-gray-700 w-full"
           >
             <p>{exp.company}</p>
-            <p className="text-center">{exp.title}</p>
-            <p className="text-right">{exp.date}</p>
+            <p className="lg:text-center lg:block flex justify-end">
+              {exp.title}
+            </p>
+            <p className="text-right lg:col-span-1 col-span-2">{exp.date}</p>
           </div>
         ))}
       </motion.div>

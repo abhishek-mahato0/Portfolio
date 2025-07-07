@@ -26,7 +26,7 @@ const Projects = () => {
         real-world use cases, and clean, scalable code using modern web
         technologies.
       </p>
-      <div className=" grid lg:grid-cols-2 grid-cols-1 gap-10 items-center justify-center mt-4">
+      <div className=" grid lg:grid-cols-3 grid-cols-1 gap-10 items-center justify-center mt-4">
         {personalProjects.map((project) => (
           <ProjectCard
             key={project.title}
@@ -35,6 +35,7 @@ const Projects = () => {
             tech={project.techStack}
             image={project.image}
             link={project.link}
+            gitLink={project.gitLink}
           />
         ))}
       </div>

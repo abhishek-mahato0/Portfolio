@@ -1,6 +1,11 @@
 "use client";
 
-import { AnimatePresence, motion } from "motion/react";
+import {
+  AnimatePresence,
+  motion,
+  useMotionValueEvent,
+  useScroll,
+} from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -15,13 +20,27 @@ const links = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { scrollY } = useScroll();
+  const [hidden, setHidden] = useState(false);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() || 0;
+    if (latest > previous && latest > 150) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  });
 
   return (
     <motion.nav
       className="w-full sticky top-0 z-50 backdrop-blur-md bg-black/30 border-b border-gray-700 text-white"
-      initial={{ opacity: 0, y: -50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 2, ease: "easeInOut" }}
+      variants={{
+        visible: { y: 0 },
+        hidden: { y: "-100%" },
+      }}
+      animate={hidden ? "hidden" : "visible"}
+      transition={{ duration: 0.35, ease: "easeInOut" }}
     >
       <div className="max-w-[1300px] mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
