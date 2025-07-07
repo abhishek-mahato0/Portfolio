@@ -64,11 +64,11 @@ export const experience = [
     ],
   },
   {
-    title: "Frontend Trainee",
+    title: "Frontend Developer",
     company: "Naxa Pvt Ltd",
     role: "React frontend developer trainee",
     location: "Do Cha Marg, Maharajgunj-3, Kathmandu, Nepal",
-    date: "30 May 2023, 2023- 28 June 2024",
+    date: "5 Sep 2023 - 28 June 2024",
     description:
       "Built a disaster prevention website with predictive analytics and contributed to a municipal tracking system, focusing on UI/UX, data management, and system reliability through collaborative development and testing. ",
     tech: [
@@ -86,11 +86,11 @@ export const experience = [
     ],
   },
   {
-    title: "Frontend Intern",
+    title: "Frontend Developer Intern",
     company: "Naxa Pvt Ltd",
     role: "React frontend developer intern",
     location: "Do Cha Marg, Maharajgunj-3, Kathmandu, Nepal",
-    date: "5 Sep, 2022 - 30 May, 2023",
+    date: "5 June, 2022 - 5 Sep, 2023",
     description:
       "Built a disaster prevention website with predictive analytics and contributed to a municipal tracking system, focusing on UI/UX, data management, and system reliability through collaborative development and testing. ",
     tech: [
