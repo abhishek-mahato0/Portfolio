@@ -39,7 +39,7 @@ export const personalProjects = [
     ],
     link: "https://dma-dev.naxa.com.np/dashboard",
     techStack: ["React", "Tailwind CSS", "MapLibre GL", "React Query", "Jest"],
-    image: "/dmaps.png",
+    image: "/dmaps.svg",
   },
   {
     id: 4,
@@ -58,7 +58,7 @@ export const personalProjects = [
       "Redux Toolkit",
       "Shadcn/ui",
     ],
-    image: "/license.jpg",
+    image: "/license.png",
   },
   {
     id: 5,

@@ -33,7 +33,7 @@ const ProjectCard = ({
       <img
         src={image}
         alt="project preview"
-        className="w-full h-[300px] object-cover rounded-t-2xl"
+        className="w-full h-[300px] object-cover rounded-t-2xl text-center bg-gradient-to-r from-blue-800 to-blue-500"
       />
 
       <div className="p-4 flex flex-col justify-between lg:h-[350px] h-full">
