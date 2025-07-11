@@ -28,7 +28,7 @@ const ProjectCard = ({
         boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.2)",
       }}
       transition={{ type: "spring", stiffness: 300 }}
-      className="bg-white dark:bg-slate-900 rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
+      className="rounded-2xl border-1 border-gray-900 shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
     >
       <img
         src={image}
@@ -54,12 +54,9 @@ const ProjectCard = ({
         </div>
         <div className="mt-4 flex flex-wrap gap-2">
           {tech.map((t, i) => (
-            <span
-              key={i}
-              className="text-xs px-2 py-1 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-200 rounded-full"
-            >
-              {t}
-            </span>
+            <div key={`${t}${i}`} className="bg-gradient-to-r rounded-full from-blue-500/20 px-2 to-purple-500/20 text-blue-300 border-blue-500/30 hover:scale-105 transition-transform duration-200">
+            {t}
+          </div>
           ))}
         </div>
         <div className="flex gap-4 mt-4 align-items-center">

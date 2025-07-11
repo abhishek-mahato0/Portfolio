@@ -22,20 +22,6 @@ const Banner = () => {
       className={`flex relative overflow-hidden w-full flex-col items-center justify-between min-h-[100vh] text-gray-100 p-8 gap-4 ${kaiseiTokumin.variable}`}
     >
       <FloatingIcons />
-      {/* {!loaded && (
-        <div className="absolute w-full h-full inset-0 backdrop-blur-lg z-40 transition duration-1000 ease-out">
-          <div className="flex items-center justify-center h-full">
-            <motion.img
-              initial={{ scale: 2, opacity: 0, y: -50 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
-              src="/profile.jpg"
-              alt="Loading"
-              className="w-[400px] h-[400px] object-cover shadow-lg bg-gray-800 border-4 border-white dark:border-slate-900"
-            />
-          </div>
-        </div>
-      )} */}
 
       <motion.div className="flex flex-col items-center justify-center gap-4 mt-8">
         <motion.img
@@ -45,28 +31,40 @@ const Banner = () => {
           initial={{ scale: 2, opacity: 0, y: 100 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           whileInView={{ opacity: 1 }}
         />
         <motion.div
           className="flex flex-col items-center justify-center gap-4"
           whileInView={{ opacity: 1 }}
           initial={{ opacity: 0 }}
-          transition={{ duration: 2, ease: "easeInOut" }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
           viewport={{ once: true }}
         >
           <span className="text-gray-400 text-base md:text-lg">
-          <TypewriterText texts={["Full Stack Developer", "Tech Enthusiast"]} />
+            <TypewriterText
+              texts={["Full Stack Developer", "Tech Enthusiast"]}
+            />
           </span>
-          <h1 className="text-6xl font-kaisei md:text-7xl font-bold mt-4 text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.8 }}
+            className="text-6xl font-kaisei md:text-7xl font-bold mt-4 text-center"
+          >
             <span className="">Abhishek</span>{" "}
             <span className="font-kaisei">Mahato</span>
-          </h1>
-          <p className="text-center text-gray-400 mt-4 text-lg md:text-xl max-w-2xl">
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2 }}
+            className="text-center text-gray-400 mt-4 text-lg md:text-xl max-w-2xl"
+          >
             Not just pushing pixels – pushing{" "}
             <span className="">clean code</span> , passion, and purpose into
             every project.
-          </p>
+          </motion.p>
           <div className="flex gap-4 mt-4">
             <SocialLinks />
           </div>

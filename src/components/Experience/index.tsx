@@ -3,6 +3,7 @@ import React from "react";
 import Header from "../Header";
 import { cn } from "@/utils";
 import { motion } from "motion/react";
+import CarrerTImeline from "./CarrerTImeline";
 
 const skills = [
   "HTML",
@@ -40,13 +41,18 @@ const skills = [
 
 export const experience = [
   {
+    id: 0,
     title: "Software Developer",
     company: "Innovate Tech",
     role: "Fullstack developer",
     location: "Baluwatar, Kathmandu, Nepal",
     date: "5 July, 2024 - present",
-    description:
-      "Built a resource-sharing system for easy access to educational materials and developed an Ebook module for collaborative editing and submission. Enhanced user experience with interactive scribble, notifications, and real-time chat, focusing on a seamless, user-friendly interface.",
+    description: [
+      "Spearheaded the end-to-end development and implementation of dynamic, high-performance web applications, contributing across database design, backend API development (Node.js), and intuitive user interfaces (React.js, TypeScript).",
+      "Engineered and optimized new core UI features, establishing a library of reusable, scalable components that accelerated future development cycles.",
+      "Designed and integrated robust RESTful APIs, ensuring seamless data flow, optimized data fetching strategies, and strong backend-frontend communication.",
+      "Actively contributed to all phases of the software development life cycle, from conceptualization and design to deployment and performance monitoring, in an agile environment.",
+    ],
     tech: [
       "HTML",
       "CSS",
@@ -64,13 +70,17 @@ export const experience = [
     ],
   },
   {
+    id: 1,
     title: "Frontend Developer",
     company: "Naxa Pvt Ltd",
     role: "React frontend developer trainee",
     location: "Do Cha Marg, Maharajgunj-3, Kathmandu, Nepal",
     date: "5 Sep 2023 - 28 June 2024",
-    description:
-      "Built a disaster prevention website with predictive analytics and contributed to a municipal tracking system, focusing on UI/UX, data management, and system reliability through collaborative development and testing. ",
+    description: [
+      "Developed and meticulously maintained highly responsive and interactive UIs for cutting-edge geospatial web applications, enhancing user engagement and data visualization.",
+      "Optimized complex frontend state management and data fetching strategies using React Query and Redux Toolkit, significantly improving application responsiveness and reducing load times by 10%.",
+      "Proficiently managed version control using Git/GitHub, actively collaborating within an Agile team to ensure stable releases and streamline development workflows.",
+    ],
     tech: [
       "HTML",
       "CSS",
@@ -86,13 +96,16 @@ export const experience = [
     ],
   },
   {
+    id: 2,
     title: "Frontend Developer Intern",
     company: "Naxa Pvt Ltd",
     role: "React frontend developer intern",
     location: "Do Cha Marg, Maharajgunj-3, Kathmandu, Nepal",
     date: "5 June, 2022 - 5 Sep, 2023",
-    description:
-      "Built a disaster prevention website with predictive analytics and contributed to a municipal tracking system, focusing on UI/UX, data management, and system reliability through collaborative development and testing. ",
+    description: [
+      "Actively contributed to the development of responsive React.js UIs, implementing new features and effectively managing application state with Redux to ensure data consistency and responsiveness.",
+      "Collaborated closely with senior developers on critical front-end tasks, utilizing Git/GitHub for streamlined code integration and version control, contributing to timely project milestones.",
+    ],
     tech: [
       "HTML",
       "CSS",
@@ -109,9 +122,28 @@ export const experience = [
   },
 ];
 
+function getFormattedExperience() {
+  const startDate = new Date("2022-09-05");
+  const now = new Date();
+  const diffInMs = Number(now) - Number(startDate);
+  const msInYear = 1000 * 60 * 60 * 24 * 365.25;
+
+  const exactYears = diffInMs / msInYear;
+  const fullYears = Math.floor(exactYears);
+  const decimal = (exactYears - fullYears).toFixed(2).split(".")[1]; // Get only the first 2 digits after decimal
+
+  const firstDecimalDigit = parseInt(decimal[0], 10); // First digit after '.'
+
+  if (firstDecimalDigit < 5) {
+    return `${fullYears}+ years`;
+  } else {
+    return `${fullYears + 1} years`;
+  }
+}
+
 const Experience = () => {
   return (
-    <motion.div className="w-full relative mt-10 pt-20">
+    <motion.div className="w-full relative mt-10 pt-20 min-h-screen">
       {/* Fading white top border */}
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white to-transparent opacity-30" />
 
@@ -127,7 +159,7 @@ const Experience = () => {
       >
         <Header title="Experience" />
         <p className="text-center text-gray-400 text-lg md:text-xl lg:w-[70%] w-full">
-          2+ years of experience building full-stack web applications with a
+        {getFormattedExperience()} of experience building full-stack web applications with a
           focus on performance, usability, and modern tech stacks.
         </p>
 
@@ -149,19 +181,7 @@ const Experience = () => {
             </span>
           ))}
         </div>
-
-        {experience.map((exp, index) => (
-          <div
-            key={index}
-            className="px-4 py-6 shadow-md grid lg:grid-cols-3 grid-cols-2 border-b border-b-gray-700 w-full"
-          >
-            <p>{exp.company}</p>
-            <p className="lg:text-center lg:block flex justify-end">
-              {exp.title}
-            </p>
-            <p className="text-right lg:col-span-1 col-span-2">{exp.date}</p>
-          </div>
-        ))}
+        <CarrerTImeline />
       </motion.div>
     </motion.div>
   );
