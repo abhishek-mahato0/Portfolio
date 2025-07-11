@@ -157,7 +157,7 @@ const Experience = () => {
         initial={{ opacity: 0 }}
         transition={{ duration: 1.5, ease: "easeInOut" }}
       >
-        <Header title="Experience" />
+        <Header isInView={true} title="Experience" />
         <p className="text-center text-gray-400 text-lg md:text-xl lg:w-[70%] w-full">
         {getFormattedExperience()} of experience building full-stack web applications with a
           focus on performance, usability, and modern tech stacks.

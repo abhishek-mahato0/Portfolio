@@ -7,7 +7,7 @@ const Header = ({
   isInView = true,
 }: {
   title: string;
-  isInView: boolean;
+  isInView?: boolean;
 }) => {
   return (
     <motion.div

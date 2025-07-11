@@ -11,11 +11,10 @@ import {
   BiTargetLock,
 } from "react-icons/bi";
 import { experience } from ".";
-import { CgLock } from "react-icons/cg";
 import { FiZap } from "react-icons/fi";
 
 const CarrerTImeline = () => {
-  const [selectedExperience, setSelectedExperience] = useState(1);
+  const [selectedExperience, setSelectedExperience] = useState(0);
   return (
     <motion.div
       key="experience"
@@ -98,12 +97,8 @@ const CarrerTImeline = () => {
 
                     <div className="flex flex-wrap items-center gap-4 mb-6">
                       <div className="flex items-center text-zinc-400">
-                        <BiLocationPlus className="h-4 w-4 mr-2" />
+                        <BiLocationPlus className="h-5 w-5 mr-2" />
                         <span>{experience[selectedExperience].location}</span>
-                      </div>
-                      <div className="flex items-center text-zinc-400">
-                        <CgLock className="h-4 w-4 mr-2" />
-                        <span>1 years</span>
                       </div>
                     </div>
                   </div>
