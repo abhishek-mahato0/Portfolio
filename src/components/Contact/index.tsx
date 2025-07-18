@@ -1,9 +1,36 @@
-"use client"
+"use client";
 import { useRef, useState } from "react";
 import { useInView } from "framer-motion";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import ContactInfo from "./ContactInfo";
+
+function Spinner() {
+  return (
+    <svg
+      className="animate-spin text-blue-500"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      width={25}
+      height={25}
+    >
+      <circle
+        className="opacity-25"
+        cx="12"
+        cy="12"
+        r="10"
+        stroke="#000000"
+        strokeWidth="4"
+      />
+      <path
+        className="opacity-75"
+        fill="#000000"
+        d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+      />
+    </svg>
+  );
+}
 
 export default function ContactPage() {
   const ref = useRef(null);
@@ -24,7 +51,7 @@ export default function ContactPage() {
     const formData = new FormData(event.currentTarget);
 
     try {
-      const response = await fetch(`https://formspree.io/f/${process.env.EMAIL}`, {
+      const response = await fetch(`https://formspree.io/f/mdkzqlvl`, {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -41,11 +68,15 @@ export default function ContactPage() {
         setState({
           ok: false,
           message:
-            result?.errors?.[0]?.message || "Something went wrong. Please try again.",
+            result?.errors?.[0]?.message ||
+            "Something went wrong. Please try again.",
         });
       }
     } catch {
-      setState({ ok: false, message: "Network error. Please try again later." });
+      setState({
+        ok: false,
+        message: "Network error. Please try again later.",
+      });
     } finally {
       setIsPending(false);
     }
@@ -79,7 +110,10 @@ export default function ContactPage() {
             className="border-1 border-gray-900 text-white p-8 rounded-lg shadow-lg w-full lg:w-[95%] space-y-6"
           >
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-slate-300 mb-2"
+              >
                 Name *
               </label>
               <input
@@ -93,7 +127,10 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-slate-300 mb-2"
+              >
                 Email *
               </label>
               <input
@@ -107,7 +144,10 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <label htmlFor="subject" className="block text-sm font-medium text-slate-300 mb-2">
+              <label
+                htmlFor="subject"
+                className="block text-sm font-medium text-slate-300 mb-2"
+              >
                 Subject *
               </label>
               <input
@@ -121,7 +161,10 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-2">
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium text-slate-300 mb-2"
+              >
                 Message *
               </label>
               <textarea
@@ -147,13 +190,13 @@ export default function ContactPage() {
             <button
               type="submit"
               disabled={isPending}
-              className={`w-full font-semibold py-2 rounded transition cursor-pointer ${
+              className={`w-full flex items-center bg-white justify-center gap-2 font-semibold py-2 rounded transition cursor-pointer ${
                 isPending
-                  ? "bg-gray-600 text-white cursor-not-allowed"
-                  : "bg-white text-black hover:bg-gray-200"
+                  ? "text-black cursor-not-allowed"
+                  : "text-black hover:bg-gray-200"
               }`}
             >
-              {isPending ? "Sending..." : "Send"}
+              {isPending && <Spinner />} Send
             </button>
           </form>
         </motion.div>

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import Header from "../Header";
 import { cn } from "@/utils";
 import { motion } from "motion/react";
@@ -142,8 +142,12 @@ function getFormattedExperience() {
 }
 
 const Experience = () => {
+  const ref = useRef(null);
   return (
-    <motion.div className="w-full relative mt-10 pt-20 min-h-screen">
+    <motion.div
+      className="w-full relative mt-10 pt-20 min-h-screen"
+      id="skills&exp"
+    >
       {/* Fading white top border */}
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white to-transparent opacity-30" />
 
@@ -153,17 +157,40 @@ const Experience = () => {
       <motion.div
         className="relative z-10 flex flex-col items-center justify-between gap-4"
         id="experience"
-        whileInView={{ opacity: 1 }}
-        initial={{ opacity: 0 }}
-        transition={{ duration: 1.5, ease: "easeInOut" }}
+        ref={ref}
+        initial={{ opacity: 0, y: -50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
       >
-        <Header isInView={true} title="Experience" />
-        <p className="text-center text-gray-400 text-lg md:text-xl lg:w-[70%] w-full">
-        {getFormattedExperience()} of experience building full-stack web applications with a
-          focus on performance, usability, and modern tech stacks.
-        </p>
+        {/* Header animation */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+        >
+          <Header isInView={true} title="Skills & Experience" />
+        </motion.div>
 
-        <div className="relative text-center text-gray-400 p-10 bg-gray-900 mb-4 rounded-lg mt-4">
+        {/* Paragraph fade-in */}
+        <motion.p
+          className="text-center text-gray-400 text-lg md:text-xl lg:w-[70%] w-full px-2"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.6 }}
+        >
+          {getFormattedExperience()} of experience building full-stack web
+          applications with a focus on performance, usability, and modern tech
+          stacks.
+        </motion.p>
+
+        {/* Skills Grid */}
+        <motion.div
+          className="relative text-center text-gray-400 p-10 bg-gray-900 mb-4 rounded-lg mt-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.8 }}
+        >
           <div
             className={cn(
               "absolute inset-0 z-0 opacity-45",
@@ -172,16 +199,44 @@ const Experience = () => {
               "dark:[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)]"
             )}
           />
-          {skills.map((skill, index) => (
-            <span
-              key={index}
-              className="inline-block px-4 py-2 bg-black rounded-lg text-base mr-2 mb-2"
-            >
-              {skill}
-            </span>
-          ))}
-        </div>
-        <CarrerTImeline />
+
+          {/* Skills with stagger animation */}
+          <motion.div
+            className="relative z-10 flex flex-wrap justify-center"
+            initial="hidden"
+            whileInView="visible"
+            variants={{
+              visible: {
+                transition: {
+                  staggerChildren: 0.05,
+                },
+              },
+            }}
+          >
+            {skills.map((skill, index) => (
+              <motion.span
+                key={index}
+                className="inline-block px-4 py-2 bg-black rounded-lg text-base mr-2 mb-2"
+                variants={{
+                  hidden: { opacity: 0, y: 10 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              >
+                {skill}
+              </motion.span>
+            ))}
+          </motion.div>
+        </motion.div>
+
+        {/* Career Timeline animation */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1.2 }}
+        >
+          <CarrerTImeline />
+        </motion.div>
       </motion.div>
     </motion.div>
   );

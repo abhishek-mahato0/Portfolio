@@ -22,7 +22,8 @@ const CarrerTImeline = () => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.5 }}
-      className="grid lg:grid-cols-12 gap-8 mt-4"
+      className="grid lg:grid-cols-12 gap-8 mt-4 md:px-0 px-4"
+      id="carrer"
     >
       {/* Timeline Navigation */}
       <div className="lg:col-span-4">
@@ -76,7 +77,7 @@ const CarrerTImeline = () => {
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.5 }}
           >
-            <div className=" border-1 border-gray-900 backdrop-blur-sm overflow-hidden rounded-xl">
+            <div className=" border-1 md:border-gray-900 backdrop-blur-sm overflow-hidden rounded-xl">
               <div className="p-8">
                 {/* Header */}
                 <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-8">

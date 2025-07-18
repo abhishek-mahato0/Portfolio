@@ -1,89 +1,106 @@
 /* eslint-disable @next/next/no-img-element */
-// components/ProjectCard.jsx
-import Link from "next/link";
-import React from "react";
-import { FaGithub, FaRegCirclePlay } from "react-icons/fa6";
-import { motion } from "motion/react";
+import React, { useEffect, useState } from "react";
+import { BentoGrid, BentoGridItem } from "../BentoGrid";
+import { personalProjects } from "@/data/projects";
 
-const ProjectCard = ({
-  title,
-  description,
-  tech,
-  image,
-  link,
-  gitLink,
-}: {
-  title: string;
-  description: string[];
-  tech: string[];
-  image: string;
-  link: string;
-  gitLink?: string;
-}) => {
-  return (
-    <motion.div
-      whileHover={{
-        scale: 1.03,
-        y: -5,
-        boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.2)",
-      }}
-      transition={{ type: "spring", stiffness: 300 }}
-      className="rounded-2xl border-1 border-gray-900 shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
-    >
-      <img
-        src={image}
-        alt="project preview"
-        className="w-full h-[300px] object-cover rounded-t-2xl text-center bg-gradient-to-r from-blue-800 to-blue-500"
-      />
+function getBentoSpanClass(index: number, totalItems: number): string {
+  const spanPairs = [
+    ["col-span-7", "col-span-7"],
+    ["col-span-6", "col-span-8"],
+    ["col-span-9", "col-span-5"],
+  ];
 
-      <div className="p-4 flex flex-col justify-between lg:h-[350px] h-full">
-        <div>
-          <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
-            {title}
-          </h3>
-          <div className="flex flex-col gap-1">
-            {description.map((desc) => (
-              <p
-                key={desc}
-                className="text-sm text-gray-600 dark:text-gray-400 mt-2"
-              >
-                {desc}
-              </p>
-            ))}
+  const pair = spanPairs[Math.floor(index / 2) % spanPairs.length];
+  const colSpan = pair[index % 2];
+
+  const isLastFour = index >= totalItems - 4;
+  const heightClasses = [
+    "max-h-[390px]",
+    "max-h-[450px]",
+    "max-h-[420px]",
+    "max-h-[350px]",
+  ];
+
+  const heightClass = isLastFour
+    ? heightClasses[index % heightClasses.length]
+    : "max-h-[350px]";
+
+  return `${colSpan} ${heightClass}`;
+}
+
+export default function ProjectCard() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768); // You can adjust this breakpoint
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
+  return isMobile ? (
+    <div className="flex flex-col gap-6 mt-6">
+      {personalProjects.map((item, i) => (
+        <div
+          key={i}
+          className="w-full rounded-xl bg-zinc-900 p-4 shadow-md"
+        >
+          <img
+            src={item.image}
+            alt={item.title}
+            className="w-full h-48 object-cover rounded-lg mb-4"
+          />
+          <h3 className="text-white text-lg font-bold">{item.title}</h3>
+          <p className="text-zinc-300 text-sm mt-1">
+            {item.description?.join(" ")}
+          </p>
+          <div className="mt-2 text-sm text-zinc-400">
+            <p className="mt-1">
+              <strong>Tech Stack:</strong> {item.techStack.join(", ")}
+            </p>
+            <div className="flex gap-4 mt-2">
+              {item.link && (
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline text-blue-400"
+                >
+                  Live
+                </a>
+              )}
+              {item.gitLink && (
+                <a
+                  href={item.gitLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline text-green-400"
+                >
+                  GitHub
+                </a>
+              )}
+            </div>
           </div>
         </div>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {tech.map((t, i) => (
-            <div key={`${t}${i}`} className="bg-gradient-to-r rounded-full from-blue-500/20 px-2 to-purple-500/20 text-blue-300 border-blue-500/30 hover:scale-105 transition-transform duration-200">
-            {t}
-          </div>
-          ))}
-        </div>
-        <div className="flex gap-4 mt-4 align-items-center">
-          {link && (
-            <Link
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm relative flex px-4 py-2 rounded-lg items-center justify-center border border-slate-800 bg-slate-900/[0.8] antialiased backdrop-blur-xl font-medium text-blue-600 dark:text-blue-400 hover:underline"
-            >
-              <FaRegCirclePlay className="mr-2" /> View Project
-            </Link>
-          )}
-          {gitLink && (
-            <Link
-              href={gitLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm relative flex px-4 py-2 rounded-lg items-center justify-center border border-slate-800 bg-slate-900/[0.8] antialiased backdrop-blur-xl font-medium text-blue-600 dark:text-blue-400 hover:underline"
-            >
-              <FaGithub className="mr-2" /> View Code
-            </Link>
-          )}
-        </div>
-      </div>
-    </motion.div>
+      ))}
+    </div>
+  ) : (
+    <BentoGrid className="w-full mt-6 space-y-5">
+      {personalProjects.map((item, i) => (
+        <BentoGridItem
+          key={i}
+          title={item.title}
+          image={item.image}
+          description={item.description}
+          link={item.link}
+          gitLink={item?.gitLink || ""}
+          tech={item.techStack}
+          className={getBentoSpanClass(i, personalProjects.length)}
+        />
+      ))}
+    </BentoGrid>
   );
-};
-
-export default ProjectCard;
+}

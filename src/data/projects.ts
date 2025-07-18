@@ -3,51 +3,104 @@ export const personalProjects = [
     id: 1,
     title: "MySecond Teacher",
     description: [
-      "Led the frontend development of a leading e-learning platform with over 1M users.",
-      "Implemented collaborative Ebook editing, resource sharing, and real-time content annotation using WebSockets and React.js.",
-      "Ensured responsive, accessible, and intuitive UI for global students and educators.",
+      "Led frontend development of an e-learning platform serving over 1M+ users across South Asia.",
+      "Built collaborative ebook editing and real-time annotation tools using WebSockets, Redux, and React.",
+      "Ensured responsive and WCAG-compliant UI for seamless learning experience on all devices.",
+      "Integrated REST APIs, content playback, and offline-first support for low-bandwidth regions."
     ],
     link: "https://mysecondteacher.com.np",
+    gitLink: null,
     techStack: [
-      "React.JS",
-      "Bootstrap",
+      "React.js",
       "Redux",
       "React Query",
       "Saga Middleware",
+      "Bootstrap",
+      "WebSockets",
+      "TypeScript",
+      "Jest",
+      "CI/CD (GitHub Actions)"
     ],
-    image: "/mst.png",
+    image: "/mst.png"
   },
   {
     id: 2,
-    title: "Naxa Assessment",
+    title: "HomeSchool Asia",
     description: [
-      "Designed and developed the UI of a digital municipal address tracking system.",
-      "Enabled smart address search, household-level mapping, and visual data insights for local governance.",
-      "Integrated MapLibre GL for efficient geospatial rendering and performance.",
+      "Built and maintained a full-stack scalable homeschooling platform used by thousands of students in Asia.",
+      "Implemented real-time features using Kafka and WebSockets for interactive classrooms and parent-teacher chats.",
+      "Developed structured learning flows, diagnostic assessments, and progress tracking systems.",
+      "Integrated secure backend using NestJS, PostgreSQL, and Redis for caching and performance."
     ],
-    link: "https://assessment.naxa.com.np",
-    techStack: ["React", "React Query", "Tailwind CSS", "OpenLayers", "Redux"],
-    image: "/assessment.png",
+    link: "https://homeschool.asia",
+    gitLink: null,
+    techStack: [
+      "React",
+      "NestJS",
+      "Node.js",
+      "PostgreSQL",
+      "Kafka",
+      "Socket.IO",
+      "SCSS Modules",
+      "Redis",
+      "Docker",
+      "TypeScript"
+    ],
+    image: "/hsa.jpeg"
   },
   {
     id: 3,
-    title: "Digital Metric Addressing",
+    title: "Naxa Assessment System",
     description: [
-      "Contributed to the frontend and UI/UX design of a disaster data collection and analytics platform.",
-      "Implemented dynamic questionnaire forms and real-time visualizations for actionable insights.",
-      "Integrated OpenLayers for map-based survey data visualization and geospatial analysis.",
+      "Designed and developed a digital address tracking and spatial data management system.",
+      "Enabled smart address search, GIS-based household mapping, and data analytics dashboard for municipalities.",
+      "Used MapLibre GL + OpenLayers for high-performance geospatial rendering.",
+      "Collaborated with cross-functional teams on data flow, mapping, and reporting logic."
     ],
-    link: "https://dma-dev.naxa.com.np/dashboard",
-    techStack: ["React", "Tailwind CSS", "MapLibre GL", "React Query", "Jest"],
-    image: "/dmaps.svg",
+    link: "https://assessment.naxa.com.np",
+    gitLink: null,
+    techStack: [
+      "React",
+      "Tailwind CSS",
+      "React Query",
+      "OpenLayers",
+      "MapLibre GL",
+      "Redux",
+      "Framer Motion"
+    ],
+    image: "/assessment.png"
   },
   {
     id: 4,
+    title: "Digital Metric Addressing",
+    description: [
+      "Contributed to a disaster response system collecting real-time geospatial survey data.",
+      "Built dynamic survey forms with validation logic and integrated map-based data visualization.",
+      "Used OpenLayers for plotting responses and enabling spatial insights for NGOs and municipalities.",
+      "Implemented performance optimizations using lazy loading and memoized components."
+    ],
+    link: "https://dma-dev.naxa.com.np/dashboard",
+    gitLink: null,
+    techStack: [
+      "React",
+      "Tailwind CSS",
+      "OpenLayers",
+      "MapLibre GL",
+      "React Query",
+      "Jest",
+      "Vite",
+      "TypeScript"
+    ],
+    image: "/dmaps.png"
+  },
+  {
+    id: 5,
     title: "License Appointment System",
     description: [
-      "Built a license scheduling platform with real-time appointment booking and admin dashboards.",
-      "Implemented secure user authentication and role-based access using Next.js and MongoDB.",
-      "Designed a clean, accessible UI using Tailwind CSS and shadcn/ui component library.",
+      "Built a full-stack license scheduling platform with real-time appointment slots and role-based access.",
+      "Integrated secure authentication, admin dashboards, and audit logs using NextAuth and MongoDB.",
+      "Implemented reusable UI components using Shadcn/UI and maintained accessibility standards.",
+      "Deployed on Vercel with environment-based CI/CD pipelines and testing."
     ],
     link: "https://license-appointment-system.vercel.app/",
     gitLink: "https://github.com/abhishek-mahato0/license-appointment-system",
@@ -55,25 +108,41 @@ export const personalProjects = [
       "Next.js",
       "MongoDB",
       "Tailwind CSS",
+      "Shadcn/UI",
       "Redux Toolkit",
-      "Shadcn/ui",
+      "NextAuth.js",
+      "Zod",
+      "TypeScript",
+      "Vercel"
     ],
-    image: "/license.png",
+    image: "/license.png"
   },
   {
-    id: 5,
+    id: 6,
     title: "MERN E-commerce Website",
     description: [
-      "Developed a responsive full-stack e-commerce application using the MERN stack.",
-      "Implemented product filtering, user authentication, shopping cart, and admin panel.",
-      "Focused on a clean UI/UX and efficient state management for seamless shopping experience.",
+      "Developed a full-featured MERN-based e-commerce app with user registration, cart, and admin panel.",
+      "Built RESTful APIs with Express for order handling, product filtering, and secure payment simulation.",
+      "Implemented Redux for efficient cart and product state management and optimized for mobile.",
+      "Added route protection, JWT auth, and reusable hooks for clean architecture."
     ],
     link: "https://mern-helmart-website-client.vercel.app/",
     gitLink: "https://github.com/abhishek-mahato0/MERN-helmart-Website",
-    techStack: ["MongoDB", "Express.js", "React", "Node.js"],
-    image: "/helmet.png",
-  },
+    techStack: [
+      "MongoDB",
+      "Express.js",
+      "React",
+      "Node.js",
+      "Redux Toolkit",
+      "Tailwind CSS",
+      "JWT Auth",
+      "React Router",
+      "Formik + Yup"
+    ],
+    image: "/helmet.png"
+  }
 ];
+
 
 export const companyProjects = [
   {

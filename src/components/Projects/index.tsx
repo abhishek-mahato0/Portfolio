@@ -1,16 +1,15 @@
 "use client";
 import React, { useRef } from "react";
 import Header from "../Header";
-import { personalProjects } from "@/data/projects";
-import ProjectCard from "./Card";
 import { motion, useInView } from "motion/react";
+import ProjectCard from "./Card";
 
 const Projects = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   return (
     <div
-      className="w-ful flex flex-col gap-4 relative pt-20 mt-40 lg:px-0 px-2"
+      className="w-ful flex flex-col gap-4 relative pt-20 mt-40 lg:px-0 px-2 h-full"
       id="projects"
     >
       <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-white to-transparent opacity-30" />
@@ -29,24 +28,7 @@ const Projects = () => {
         real-world use cases, and clean, scalable code using modern web
         technologies.
       </motion.p>
-      <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="grid lg:grid-cols-3 grid-cols-1 gap-8 w-full items-center justify-center mt-4"
-      >
-        {personalProjects.map((project) => (
-          <ProjectCard
-            key={project.title}
-            title={project.title}
-            description={project.description}
-            tech={project.techStack}
-            image={project.image}
-            link={project.link}
-            gitLink={project.gitLink}
-          />
-        ))}
-      </motion.div>
+      <ProjectCard />
     </div>
   );
 };

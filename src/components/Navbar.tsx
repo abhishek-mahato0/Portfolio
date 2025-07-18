@@ -13,9 +13,10 @@ import { BiMenu } from "react-icons/bi";
 import { CgClose } from "react-icons/cg";
 
 const links = [
-  { id: 1, name: "Projects", url: "#projects" },
-  { id: 3, name: "Experience", url: "#experience" },
-  { id: 4, name: "Contact", url: "#contact" },
+  { id: 1, name: "Home", url: "#home" },
+  { id: 3, name: "SKills & Experience", url: "#skills&exp" },
+  { id: 4, name: "Projects", url: "#projects" },
+  { id: 5, name: "Contact", url: "#contact" },
 ];
 
 const Navbar = () => {
