@@ -122,7 +122,7 @@ export const experience = [
   },
 ];
 
-function getFormattedExperience() {
+export function getFormattedExperience() {
   const startDate = new Date("2022-09-05");
   const now = new Date();
   const diffInMs = Number(now) - Number(startDate);

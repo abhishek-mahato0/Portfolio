@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import {motion} from "motion/react";
+import { useState, useEffect } from "react";
+import { motion } from "motion/react";
 
 interface TypewriterTextProps {
-  texts: string[]
-  speed?: number
-  deleteSpeed?: number
-  delayBetweenTexts?: number
+  texts: string[];
+  speed?: number;
+  deleteSpeed?: number;
+  delayBetweenTexts?: number;
 }
 
 export function TypewriterText({
@@ -16,37 +16,45 @@ export function TypewriterText({
   deleteSpeed = 50,
   delayBetweenTexts = 2000,
 }: TypewriterTextProps) {
-  const [currentTextIndex, setCurrentTextIndex] = useState(0)
-  const [currentText, setCurrentText] = useState("")
-  const [isDeleting, setIsDeleting] = useState(false)
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const [currentText, setCurrentText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(
       () => {
-        const fullText = texts[currentTextIndex]
+        const fullText = texts[currentTextIndex];
 
         if (isDeleting) {
-          setCurrentText(fullText.substring(0, currentText.length - 1))
+          setCurrentText(fullText.substring(0, currentText.length - 1));
         } else {
-          setCurrentText(fullText.substring(0, currentText.length + 1))
+          setCurrentText(fullText.substring(0, currentText.length + 1));
         }
 
         if (!isDeleting && currentText === fullText) {
-          setTimeout(() => setIsDeleting(true), delayBetweenTexts)
+          setTimeout(() => setIsDeleting(true), delayBetweenTexts);
         } else if (isDeleting && currentText === "") {
-          setIsDeleting(false)
-          setCurrentTextIndex((prev) => (prev + 1) % texts.length)
+          setIsDeleting(false);
+          setCurrentTextIndex((prev) => (prev + 1) % texts.length);
         }
       },
-      isDeleting ? deleteSpeed : speed,
-    )
+      isDeleting ? deleteSpeed : speed
+    );
 
-    return () => clearTimeout(timeout)
-  }, [currentText, isDeleting, currentTextIndex, texts, speed, deleteSpeed, delayBetweenTexts])
+    return () => clearTimeout(timeout);
+  }, [
+    currentText,
+    isDeleting,
+    currentTextIndex,
+    texts,
+    speed,
+    deleteSpeed,
+    delayBetweenTexts,
+  ]);
 
   return (
     <div className="h-12 flex items-center justify-center">
-      <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+      <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent text-xl">
         {currentText}
       </span>
       <motion.span
@@ -57,5 +65,5 @@ export function TypewriterText({
         |
       </motion.span>
     </div>
-  )
+  );
 }

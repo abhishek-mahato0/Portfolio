@@ -7,7 +7,10 @@ import Projects from "@/components/Projects";
 
 export default function Home() {
   return (
-    <div className="w-full bg-gradient-to-r from-black to-gray-900 mx-auto bg-black pb-10">
+    <div
+      className="w-full bg-gradient-to-r from-black to-gray-900 mx-auto bg-black pb-10"
+      id="home"
+    >
       <Navbar />
       <div className="lg:max-w-[1300px] w-[100vw] mx-auto">
         <Banner />

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,9 +14,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Abhishek Mahato | Fullstack Web Developer in Kathmandu, Nepal",
+  title:
+    "Abhishek Mahato | MERN Stack Developer | Building Scalable Web Apps in Nepal",
   description:
-    "I'm Abhishek Mahato, a fullstack web developer based in Kathmandu, Nepal, skilled in MERN stack, React, and Next.js. View my projects, resume, and skills.",
+    "Abhishek Mahato is a Fullstack Web Developer from Kathmandu, Nepal, specializing in the MERN Stack, React, and scalable web applications. Explore his projects, resume, and portfolio showcasing innovative development work.",
   applicationName: "Abhishek Mahato Portfolio",
   themeColor: "#000000",
   authors: [{ name: "Abhishek Mahato" }],
@@ -41,6 +43,15 @@ export const metadata: Metadata = {
     "abIsHeK mAhAtO",
     "abhishekmahato",
     "abisekhmahto",
+    "engineer Abhishek Mahato",
+    "software engineer Abhishek Mahato",
+    "fullstack developer Abhishek Mahato",
+    "fullstack developer",
+    "fullstack web developer",
+    "fullstack web developer Abhishek Mahato",
+    "nepal abhishek mahato",
+    "nepal abishek mahato",
+    "nepal abisekh mahato",
     "Fullstack Developer",
     "Web Developer Nepal",
     "Next.js Developer",
@@ -121,6 +132,46 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          id="ld-json"
+          type="application/ld+json"
+          strategy="afterInteractive"
+        >
+          {`
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Abhishek Mahato",
+  "jobTitle": "Fullstack Web Developer",
+  "url": "https://www.abhishek-mahato.com.np",
+  "image": "https://www.abhishek-mahato.com.np/profile-2.png",
+  "sameAs": [
+    "https://www.linkedin.com/in/abhishek-mahato-012272239",
+    "https://github.com/abhishek-mahato0"
+  ],
+  "description": "Fullstack developer from Nepal specializing in MERN stack, React, and scalable web applications.",
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Islington College",
+    "sameAs": "https://islington.edu.np"
+  },
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Innovate Tech",
+    "sameAs": "https://innovate.com.np"
+  },
+  "knowsAbout": ["React", "Next.js", "MongoDB", "Node.js", "Software Engineering"],
+  "hasOccupation": {
+    "@type": "Occupation",
+    "name": "Fullstack Web Developer",
+    "description": "Builds and maintains web applications using MERN stack.",
+    "skills": ["React", "Next.js", "MongoDB", "Node.js", "JavaScript", "TypeScript"]
+  }
+}
+`}
+        </Script>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
