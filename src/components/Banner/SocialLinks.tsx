@@ -31,6 +31,7 @@ const SocialLinks = () => {
             className={`text-gray-400 hover:text-white transition-colors duration-300 ${
               item.border ?? null
             } `}
+            aria-label={`Link to ${item.link}`}
           >
             {item.icon}
           </a>

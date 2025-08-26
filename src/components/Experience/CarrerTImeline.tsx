@@ -10,8 +10,8 @@ import {
   BiLocationPlus,
   BiTargetLock,
 } from "react-icons/bi";
-import { experience } from ".";
 import { FiZap } from "react-icons/fi";
+import { experience } from "@/utils/common";
 
 const CarrerTImeline = () => {
   const [selectedExperience, setSelectedExperience] = useState(0);

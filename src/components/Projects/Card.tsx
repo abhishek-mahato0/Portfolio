@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { BentoGrid, BentoGridItem } from "../BentoGrid";
 import { personalProjects } from "@/data/projects";
+import Image from "next/image";
 
 function getBentoSpanClass(index: number, totalItems: number): string {
   const spanPairs = [
@@ -44,14 +45,14 @@ export default function ProjectCard() {
   return isMobile ? (
     <div className="flex flex-col gap-6 mt-6">
       {personalProjects.map((item, i) => (
-        <div
-          key={i}
-          className="w-full rounded-xl bg-zinc-900 p-4 shadow-md"
-        >
-          <img
+        <div key={i} className="w-full rounded-xl bg-zinc-900 p-4 shadow-md">
+          <Image
             src={item.image}
             alt={item.title}
             className="w-full h-48 object-cover rounded-lg mb-4"
+            width={400}
+            height={300}
+            priority
           />
           <h3 className="text-white text-lg font-bold">{item.title}</h3>
           <p className="text-zinc-300 text-sm mt-1">

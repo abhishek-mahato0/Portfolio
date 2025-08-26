@@ -5,6 +5,11 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Projects from "@/components/Projects";
 
+export const metadata = {
+  description:
+    "Discover Abhishek Mahato, a Fullstack Web Developer from Kathmandu, Nepal. Skilled in the MERN Stack, React, and scalable web applications, his portfolio highlights innovative projects, technical expertise, and professional achievements.",
+};
+
 export default function Home() {
   return (
     <div

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { BsFillPlayCircleFill } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa6";
 import { motion } from "motion/react";
+import Image from "next/image";
 
 export const BentoGrid = ({
   className,
@@ -55,10 +56,13 @@ export const BentoGridItem = ({
       )}
     >
       {/* Image */}
-      <img
+      <Image
         src={image}
         className="w-full h-full object-fill transition duration-300 group-hover:blur-sm"
         alt="projects"
+        width={400}
+        height={300}
+        priority
       />
 
       <div className="flex hover:underline gap-4 opacity-0 group-hover:opacity-100 items-center mt-2 absolute top-0 right-[10px] z-40">

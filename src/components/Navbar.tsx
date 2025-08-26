@@ -35,7 +35,7 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className="w-full sticky top-0 z-50 backdrop-blur-md bg-black/30 border-b border-gray-700 text-white"
+      className="w-full sticky h-16 top-0 z-50 backdrop-blur-md bg-black/30 border-b border-gray-700 text-white"
       variants={{
         visible: { y: 0 },
         hidden: { y: "-100%" },
@@ -43,7 +43,7 @@ const Navbar = () => {
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
     >
-      <div className="max-w-[1300px] mx-auto px-4 py-3 flex items-center justify-between">
+      <div className="max-w-[1300px] mx-auto h-full px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <Link
           href="#home"

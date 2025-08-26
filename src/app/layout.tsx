@@ -19,7 +19,6 @@ export const metadata: Metadata = {
   description:
     "Abhishek Mahato is a Fullstack Web Developer from Kathmandu, Nepal, specializing in the MERN Stack, React, and scalable web applications. Explore his projects, resume, and portfolio showcasing innovative development work.",
   applicationName: "Abhishek Mahato Portfolio",
-  themeColor: "#000000",
   authors: [{ name: "Abhishek Mahato" }],
   keywords: [
     "Abhishek Mahato",
