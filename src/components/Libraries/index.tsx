@@ -3,7 +3,6 @@ import React, { useRef } from "react";
 import Header from "../Header";
 import { motion, useInView } from "motion/react";
 import ProjectCard from "../Projects/Card";
-import { personalProjects } from "@/data/projects";
 
 const Packages = () => {
   const ref = useRef(null);

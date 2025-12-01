@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import SocialLinks from "./SocialLinks";
 import FloatingIcons from "../FloatingIcons";
@@ -28,7 +27,7 @@ const Banner = () => {
           initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{ duration: 0.2, ease: "easeOut" }}
-          whileInView={{ opacity: 1, }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="relative"
         >

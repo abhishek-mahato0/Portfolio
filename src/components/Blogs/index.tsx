@@ -1,10 +1,7 @@
 import React from "react";
 import Header from "../Header";
 import { cn } from "@/utils";
-import { getFormattedExperience } from "@/utils/getExperience";
 import MotionWrapper from "../AnimateComponent";
-import { skills } from "@/utils/common";
-import { motion } from "motion/react";
 import { blogs } from "@/data/blogs";
 import Link from "next/link";
 
