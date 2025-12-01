@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { BentoGrid, BentoGridItem } from "../BentoGrid";
 import { personalProjects } from "@/data/projects";
 import Image from "next/image";
+import { npmPackages } from "@/data/library";
 
 function getBentoSpanClass(index: number, totalItems: number): string {
   const spanPairs = [
@@ -29,8 +30,9 @@ function getBentoSpanClass(index: number, totalItems: number): string {
   return `${colSpan} ${heightClass}`;
 }
 
-export default function ProjectCard() {
+export default function ProjectCard({ type }: { type: string }) {
   const [isMobile, setIsMobile] = useState(false);
+  const options = type === "project" ? personalProjects : npmPackages;
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -44,7 +46,7 @@ export default function ProjectCard() {
 
   return isMobile ? (
     <div className="flex flex-col gap-6 mt-6">
-      {personalProjects.map((item, i) => (
+      {options?.map((item, i) => (
         <div key={i} className="w-full rounded-xl bg-zinc-900 p-4 shadow-md">
           <Image
             src={item.image}
@@ -60,7 +62,7 @@ export default function ProjectCard() {
           </p>
           <div className="mt-2 text-sm text-zinc-400">
             <p className="mt-1">
-              <strong>Tech Stack:</strong> {item.techStack.join(", ")}
+              <strong>Tech Stack:</strong> {item?.techStack.join(", ")}
             </p>
             <div className="flex gap-4 mt-2">
               {item.link && (
@@ -90,7 +92,7 @@ export default function ProjectCard() {
     </div>
   ) : (
     <BentoGrid className="w-full mt-6 space-y-5">
-      {personalProjects.map((item, i) => (
+      {options?.map((item, i) => (
         <BentoGridItem
           key={i}
           title={item.title}
@@ -98,8 +100,8 @@ export default function ProjectCard() {
           description={item.description}
           link={item.link}
           gitLink={item?.gitLink || ""}
-          tech={item.techStack}
-          className={getBentoSpanClass(i, personalProjects.length)}
+          tech={item?.techStack}
+          className={getBentoSpanClass(i, options.length)}
         />
       ))}
     </BentoGrid>

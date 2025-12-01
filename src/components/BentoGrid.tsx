@@ -59,7 +59,7 @@ export const BentoGridItem = ({
       <Image
         src={image}
         className="w-full h-full object-fill transition duration-300 group-hover:blur-sm"
-        alt="projects"
+        alt={title}
         width={400}
         height={300}
         priority

@@ -1,7 +1,9 @@
 import Banner from "@/components/Banner/Banner";
+import Blogs from "@/components/Blogs";
 import ContactPage from "@/components/Contact";
 import Experience from "@/components/Experience";
 import Footer from "@/components/Footer";
+import Packages from "@/components/Libraries";
 import Navbar from "@/components/Navbar";
 import Projects from "@/components/Projects";
 
@@ -21,6 +23,8 @@ export default function Home() {
         <Banner />
         <Experience />
         <Projects />
+        <Packages />
+        <Blogs />
         <ContactPage />
         <Footer />
       </div>

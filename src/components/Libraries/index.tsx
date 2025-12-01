@@ -2,15 +2,16 @@
 import React, { useRef } from "react";
 import Header from "../Header";
 import { motion, useInView } from "motion/react";
-import ProjectCard from "./Card";
+import ProjectCard from "../Projects/Card";
+import { personalProjects } from "@/data/projects";
 
-const Projects = () => {
+const Packages = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   return (
     <div
       className="w-ful flex flex-col gap-4 relative pt-20 mt-40 lg:px-0 px-2 h-full"
-      id="projects"
+      id="packages"
     >
       <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-white to-transparent opacity-30" />
 
@@ -22,15 +23,14 @@ const Projects = () => {
         initial={{ opacity: 0 }}
         transition={{ duration: 1.5, ease: "easeInOut" }}
       />
-      <Header isInView={isInView} title="Projects" />
+      <Header isInView={isInView} title="Packages" />
       <motion.p className="text-center text-gray-400 w-full lg:w-[70%] mx-auto text-base md:text-lg">
-        A collection of full-stack projects showcasing practical solutions,
-        real-world use cases, and clean, scalable code using modern web
-        technologies.
+        A collection of my open-source libraries and packages published on npm,
+        showcasing my contributions to the developer community.
       </motion.p>
-      <ProjectCard type="project" />
+      <ProjectCard type="library" />
     </div>
   );
 };
 
-export default Projects;
+export default Packages;
