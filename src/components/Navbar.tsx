@@ -16,6 +16,8 @@ const links = [
   { id: 1, name: "Home", url: "#home" },
   { id: 3, name: "SKills & Experience", url: "#skills&exp" },
   { id: 4, name: "Projects", url: "#projects" },
+  { id: 6, name: "Packages", url: "#packages" },
+  { id: 2, name: "Blogs", url: "#blogs" },
   { id: 5, name: "Contact", url: "#contact" },
 ];
 

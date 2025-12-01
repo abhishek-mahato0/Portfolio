@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const Blogs = () => {
   return (
-    <div className="w-full relative mt-10 pt-20 min-h-screen" id="blogs">
+    <div className="w-full relative mt-10 pt-20 min-h-fit" id="blogs">
       {/* Fading white top border */}
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white to-transparent opacity-30" />
 

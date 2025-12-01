@@ -9,7 +9,7 @@ const Packages = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   return (
     <div
-      className="w-ful flex flex-col gap-4 relative pt-20 mt-40 lg:px-0 px-2 h-full"
+      className="w-ful flex flex-col gap-4 relative pt-20 pb-10 mt-40 lg:px-0 px-2 min-h-fit"
       id="packages"
     >
       <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-white to-transparent opacity-30" />
