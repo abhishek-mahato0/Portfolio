@@ -15,7 +15,7 @@ export const metadata = {
 export default function Home() {
   return (
     <div
-      className="w-full bg-gradient-to-r from-black to-gray-900 mx-auto bg-black pb-10"
+      className="w-full bg-gradient-to-r from-black to-gray-900 mx-auto overflow-x-hidden bg-black pb-10"
       id="home"
     >
       <Navbar />

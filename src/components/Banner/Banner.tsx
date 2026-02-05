@@ -9,7 +9,7 @@ import Image from "next/image";
 import MotionWrapper from "../AnimateComponent";
 import { getFormattedExperience } from "@/utils/getExperience";
 
-const kaiseiTokumin = Oswald({
+export const kaiseiTokumin = Oswald({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-kaisei",
@@ -90,17 +90,17 @@ const Banner = () => {
               <Link
                 href="/Abhishek-Mahato-resume.pdf"
                 target="_blank"
-                className="flex items-center justify-center w-[230px] px-5 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-gray-300 rounded-full shadow-lg hover:scale-105 transition-transform duration-300 text-lg font-semibold"
+                className="flex items-center justify-center w-[180px] md:w-[250px] px-5 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-gray-300 rounded-full shadow-lg hover:scale-105 transition-transform duration-300 text-sm md:text-lg font-semibold"
               >
                 View Resume
               </Link>
 
               {/* ✅ Secondary Button – Gradient Border */}
-              <div className="rounded-full p-[1px] bg-gradient-to-r from-blue-500 to-purple-500 w-[230px] flex items-center justify-center hover:scale-105">
+              <div className="rounded-full p-[1px] bg-gradient-to-r from-blue-500 to-purple-500 w-[170px] md:w-[230px] flex items-center justify-center hover:scale-105">
                 <Link
                   href="/Abhishek-Mahato-resume.pdf"
                   download
-                  className="flex items-center justify-center w-full px-5 py-3 bg-gradient-to-r from-black to-gray-900  text-gray-300 rounded-full text-lg font-semibold"
+                  className="flex items-center justify-center w-full px-5 py-3 bg-gradient-to-r from-black to-gray-900 text-gray-300 rounded-full text-sm md:text-lg font-semibold"
                 >
                   Download Resume
                 </Link>
